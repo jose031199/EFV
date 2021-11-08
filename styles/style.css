@@ -100,6 +100,11 @@ nav img{
     transition:1s ease-in;
 }
 
+nav .fas{
+    height:30px;
+    width: 30px;
+    display: none;
+}
 
 /*Media query*/
 
@@ -108,9 +113,6 @@ nav img{
         font-size:25px;
     }
     
-    .nav-links ul li a{
-        font-size:13px;
-    }
     .nav-links ul li{
         display: block;
     }
@@ -121,8 +123,17 @@ nav img{
         height:100vh;
         width: 200px;
         top: 0;
-        right: 0;
+        right: -200px;
         text-align: left;
         z-index: 2;
+    }
+    nav .fas{
+        display: block;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .nav-links ul{
+        padding:30px;
     }
 }
