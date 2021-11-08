@@ -28,7 +28,7 @@ nav{
 }
 
 nav img{
-    width:350px;
+    width:250px;
 }
 
 .nav-links{
@@ -45,7 +45,7 @@ nav img{
 .nav-links ul li a{
     color: var(--color_blanco);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .nav-links ul li::after{
@@ -74,11 +74,12 @@ nav img{
 
 .main-text h1{
     font-size: 62px;
+    font-weight: bolder;
 }
 
 .main-text p{
     margin:10px 0 40px;
-    font-size:18px;
+    font-size:16px;
     color: var(--color_blanco);
 }
 .btn{
@@ -99,3 +100,29 @@ nav img{
     transition:1s ease-in;
 }
 
+
+/*Media query*/
+
+@media(max-width:720px){
+    .main-text h1{
+        font-size:25px;
+    }
+    
+    .nav-links ul li a{
+        font-size:13px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+
+    .nav-links{
+        position: absolute;
+        background: var(--color_dorado);
+        height:100vh;
+        width: 200px;
+        top: 0;
+        right: 0;
+        text-align: left;
+        z-index: 2;
+    }
+}
