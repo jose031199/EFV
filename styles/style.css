@@ -11,6 +11,7 @@
     font-family: 'Lato', sans-serif;
 }
 
+/*1. Header*/
 header{
     min-height: 100vh;
     width: 100%;
@@ -81,6 +82,7 @@ nav img{
     margin:10px 0 40px;
     font-size:16px;
     color: var(--color_blanco);
+    font-weight: 600;
 }
 .btn{
     display: inline-block;
@@ -106,7 +108,7 @@ nav .fas{
     display: none;
 }
 
-/*Media query*/
+/*Media query para header*/
 
 @media(max-width:720px){
     .main-text h1{
@@ -138,8 +140,10 @@ nav .fas{
     }
 }
 
-/*Main*/
 
+/*2. Main*/
+
+/*Cursos*/
 .course{
     width:80%;
     margin: auto;
@@ -147,12 +151,12 @@ nav .fas{
     padding-top: 100px;
 }
 
-.course h1{
+h1{
     font-size:36px;
     font-weight:600;
 }
 
-.course p{
+p{
     font-size: 20px;
     font-weight:300;
     line-height: 22px;
@@ -166,7 +170,7 @@ nav .fas{
 }
 
 .course-col{
-    width: 31%;
+    flex-basis: 31%;
     min-height: 180px;
     border-radius: 10px;
     margin-bottom: 5%;
@@ -194,6 +198,8 @@ nav .fas{
 
 .course-col:hover{
     box-shadow:0 0 20px 10px rgba(0,0,0,0.7);
+    flex-basis: 35%;
+    min-height: 220px;
 }
 
 h3{
@@ -204,5 +210,75 @@ h3{
     font-size:25px;
 }
 
+/*Media querie para seccion de cursos*/
+@media(max-width:720px){
+    .row{
+        flex-direction: column;
+    }
+}
 
 
+/*Seccion Campus*/
+.campus{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.campus-col{
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.campus-col img{
+    width: 100%;
+    min-height: 450px;
+    display: block;
+}
+
+.layer{
+    background:transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transition:background 0.6s ease-out;
+}
+
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: var(--color_blanco);
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.layer:hover h3{
+    bottom: 50%;
+    opacity: 1;
+}
+
+.campus-col:nth-child(1) .layer:hover{
+    background:rgba(226, 0, 0, 0.7);
+}
+
+.campus-col:nth-child(2) .layer:hover{
+    background: rgba(145, 21, 211, 0.7);
+}
+
+.campus-col:nth-child(3) .layer:hover{
+    background: rgba(45, 194, 225, 0.7);
+}
+
+
+/*Fin del Main*/
