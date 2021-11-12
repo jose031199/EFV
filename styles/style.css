@@ -129,6 +129,11 @@ nav .fas{
         right: -300px;
         text-align: left;
         z-index: 2;
+        transition:1s ease-in-out;
+    }
+
+    .mostrar {
+        right: 0;
     }
     nav .fas{
         display: block;
