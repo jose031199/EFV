@@ -2,6 +2,7 @@
     --color_blanco:white;
     --color_dorado:gold;
     --color_verde:#41BA0B;
+    --color_rojo:rgba(184, 18, 18, 0.863);
 }
 
 *,*::before,*::after{
@@ -53,7 +54,7 @@ nav img{
     content: '';
     width: 0%;
     height: 5px;
-    background: var(--color_dorado);
+    background: var(--color_rojo);
     display: block;
     margin: auto;
     transition: 0.5s ease-in-out;
@@ -110,6 +111,12 @@ nav .fas{
 }
 
 /*Media query para header*/
+
+@media(max-width:768px){
+    .nav-links ul li{
+        padding: 8px 6px;
+    }
+}
 
 @media(max-width:720px){
     .main-text h1{
@@ -205,7 +212,6 @@ p{
 .course-col:hover{
     box-shadow:0 0 20px 10px rgba(0,0,0,0.7);
     flex-basis: 35%;
-    min-height: 220px;
 }
 
 h3{
@@ -220,6 +226,12 @@ h3{
 }
 
 /*Media querie para seccion de cursos*/
+@media(max-width:768px){
+    .course-col{
+        min-height: 220px;
+    }
+}
+
 @media(max-width:720px){
     .row{
         flex-direction: column;
@@ -320,6 +332,11 @@ h3{
     text-align: left;
 }
 
+@media(max-width:768px){
+    .facilities-col img{
+        min-height: 210px;
+    }
+}
 
 /*Seccion de Testimonials*/
 
