@@ -22,6 +22,10 @@ header{
     position: relative;
 }
 
+a{
+    text-transform: uppercase;
+}
+
 nav{
     display: flex;
     padding:2% 6%;
@@ -95,7 +99,6 @@ nav img{
     background: transparent;
     position: relative;
     cursor: pointer;
-    text-transform: uppercase;
 }
 
 .more:hover{
@@ -435,3 +438,54 @@ footer h4{
     }
 }
 /*Fin del Footer*/
+
+/*About .html*/
+
+.sub-header{
+    height:50vh;
+    width: 100%;
+    background: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('../img/background.jpg');
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sub-header h1{
+    margin-top: 100px;
+    color: var(--color_blanco);
+}
+
+.about-us{
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.about-col{
+    flex-basis:48%;
+    padding:30px 2px;
+}
+
+.about-col img{
+    width: 100%;
+}
+
+.about-col h1{
+    padding-top:0;
+}
+
+.about-col p{
+    padding: 15px 0 25px;
+}
+
+.gold{
+    border: 1px solid var(--color_dorado);
+    background: transparent;
+    color: var(--color_dorado);
+}
+
+.gold:hover{
+    color: var(--color_blanco);
+}
