@@ -563,3 +563,9 @@ footer h4{
 .comment-form button{
     margin: 10px 0;
 }
+
+@media(max-width:720px){
+    .sub-header h1{
+        font-size:30px;
+    }
+}
