@@ -623,4 +623,8 @@ footer h4{
     margin-bottom:17px;
     outline: none;
     border: 1px solid #ccc;
+    border-radius: 10px;
+    background: rgb(224, 219, 219);
+    font-weight: bold;
+    font-size:15px;
 }
