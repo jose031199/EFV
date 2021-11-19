@@ -131,7 +131,7 @@ nav .fas{
     }
 
     .nav-links{
-        position: absolute;
+        position:fixed;
         background: var(--color_dorado);
         height:100vh;
         width: 200px;
