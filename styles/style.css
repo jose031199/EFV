@@ -515,3 +515,21 @@ footer h4{
     color: #999;
     padding:0;
 }
+
+.blog-right{
+    flex-basis:32%;
+}
+
+.blog-right h3{
+    background: var(--color_dorado);
+    color: var(--color_blanco);
+    font-size: 16px;
+    padding:7px 0px;
+    margin-bottom: 20px;
+}
+
+.blog-right div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
