@@ -616,3 +616,11 @@ footer h4{
 .contact-col p{
     padding:0;
 }
+
+.contact-col input, .contact-col textarea{
+    width:100%;
+    padding:15px 0;
+    margin-bottom:17px;
+    outline: none;
+    border: 1px solid #ccc;
+}
