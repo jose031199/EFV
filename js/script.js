@@ -1,9 +1,24 @@
-const persona ={nombre:''};
+const persona ={nombre:'',
+  email: ''};
 document.addEventListener('DOMContentLoaded',function() {
     eventListener();
    
-    //Guardar nombre del usuario
+    //Guardar datos del usuario 
     persona_nombre();
+
+    //Guardar email del usuario
+    persona_email();
+
+    //Guardar subject del usuario
+    persona_subject();
+
+
+    //Guardar mensaje del usuario
+    persona_message();
+
+    //Comprobar que se guardo toda la informacion del
+
+
 });
 
 function eventListener() {
@@ -20,20 +35,29 @@ function eventListener() {
   });
 }
 
-function persona_nombre(){
+function persona_datos(){
   const input_Nombre = document.querySelector('#name');
+  //const input_email = document.querySelector('#email');
+  //const input_subject = document.querySelector('#subject');
+  //const input_message = document.querySelector('#message');
 
   input_Nombre.addEventListener('input',(e)=>{
    const nombreTexto = e.target.value.trim();
-  
    if(nombreTexto.length<4 || nombreTexto===''){
      //Funcion para mostrar mensaje
     MostrarAlerta("Nombre no valido")
      }else{
+       const alerta = document.querySelector('.alerta');
+       if(alerta){
+        alerta.remove();
+       }
       persona.nombre = nombreTexto;
      }
   });
 }
+
+
+
 
 function MostrarAlerta(message){
   const alertaPrevia = document.querySelector('.alerta');
@@ -52,4 +76,9 @@ function MostrarAlerta(message){
   const formulario = document.querySelector('#formulario');
   formulario.appendChild(alerta);
 
+  //Establecer un tiempo del mensaje 
+
+  setTimeout(() => {
+    alerta.remove();
+  },5000);
 }
