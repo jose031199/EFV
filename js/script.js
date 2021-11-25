@@ -1,5 +1,5 @@
 const persona ={nombre:'',
-email:'',subject:'',message:'',};
+email:'',subject:'',message:''};
 document.addEventListener('DOMContentLoaded',function() {
     eventListener();
    
@@ -16,10 +16,35 @@ document.addEventListener('DOMContentLoaded',function() {
     //Guardar mensaje del usuario
     persona_message();
 
-    //Comprobar que se guardo toda la informacion del
+    //Comprobar que se guardo toda la informacion del usuario
+    enviar_Formulario();
 
 
 });
+
+function enviar_Formulario() {
+  //Crear evennto submit para el formulario
+  const formulario = document.getElementById('formulario');
+  let vacio = false;
+  //Evento para enviar formulario
+  formulario.addEventListener('submit',function(e){
+    e.preventDefault();
+   for(var key in persona){
+    if(persona.hasOwnProperty(key)){
+      vacio = true;
+      break;
+    }
+   }
+
+   if(vacio===true){
+    MostrarAlerta('Faltan datos por llenar')
+   }
+
+  });
+}
+
+
+
 
 function eventListener() {
   const barra = document.querySelector('.bars');
@@ -37,9 +62,7 @@ function eventListener() {
 
 function persona_nombre(){
   const input_Nombre = document.querySelector('#name');
-  //const input_email = document.querySelector('#email');
-  //const input_subject = document.querySelector('#subject');
-  //const input_message = document.querySelector('#message');
+
 
   input_Nombre.addEventListener('input',(e)=>{
    const nombreTexto = e.target.value.trim();
@@ -97,7 +120,7 @@ function persona_message(){
 
   input_message.addEventListener('input',(e)=>{
     const messageTexto = e.target.value.trim();
-    if(input_message===''||input_message.length<15){
+    if(messageTexto===''||messageTexto.length<15){
       MostrarAlerta('Agrega más contenido');
     }else{
       const alerta = document.querySelector('.alerta');
@@ -136,5 +159,5 @@ function MostrarAlerta(message){
 
   setTimeout(() => {
     alerta.remove();
-  },8000);
+  },6000);
 }
