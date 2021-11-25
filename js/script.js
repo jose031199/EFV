@@ -1,5 +1,8 @@
 const persona ={nombre:'',
 email:'',subject:'',message:''};
+
+
+
 document.addEventListener('DOMContentLoaded',function() {
     eventListener();
    
@@ -41,14 +44,11 @@ function enviar_Formulario() {
    if(vacio===true){//Si alguna de las propiedades esta vacia se manda un mensaje de error
     MostrarAlerta('Faltan datos por llenar');
    }else{
-     console.log(Object.values(persona));
+    console.log(Object.values(persona));
    }
 
   });
 }
-
-
-
 
 function eventListener() {
   const barra = document.querySelector('.bars');
