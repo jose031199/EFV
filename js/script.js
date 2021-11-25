@@ -28,16 +28,20 @@ function enviar_Formulario() {
   let vacio = false;
   //Evento para enviar formulario
   formulario.addEventListener('submit',function(e){
-    e.preventDefault();
-   for(var key in persona){
-    if(persona.hasOwnProperty(key)){
-      vacio = true;
-      break;
-    }
-   }
+    e.preventDefault();//Evento para detener el evento de submit
 
-   if(vacio===true){
-    MostrarAlerta('Faltan datos por llenar')
+    //Verificar si alguna de los keys del objeto estan vacios
+   Object.keys(persona).forEach(function(key){
+    if(persona[key]===''){
+      vacio=true;
+    }
+   });
+
+
+   if(vacio===true){//Si alguna de las propiedades esta vacia se manda un mensaje de error
+    MostrarAlerta('Faltan datos por llenar');
+   }else{
+     console.log(Object.values(persona));
    }
 
   });
