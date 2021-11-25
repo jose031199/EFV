@@ -619,14 +619,15 @@ footer h4{
 
 .contact-col input, .contact-col textarea{
     width:100%;
-    padding:15px 0;
-    margin-bottom:17px;
+    padding:13px 0;
+    margin-bottom: 17px;
     outline: none;
     border: 1px solid #ccc;
     border-radius: 10px;
     background: rgb(224, 219, 219);
     font-weight: bold;
     font-size:15px;
+    text-align: center;
 }
 
 /*Alerta*/
