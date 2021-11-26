@@ -2,6 +2,10 @@ const persona ={nombre:'',
 email:'',subject:'',message:''};
 
 document.addEventListener('DOMContentLoaded',function() {
+  //Funcion para marcar con la barra roja en que pagina estamos
+    menu_underline();
+
+  //Funcion para mostrar el menu en movil
     eventListener();
    
     //Guardar datos del usuario 
@@ -20,8 +24,51 @@ document.addEventListener('DOMContentLoaded',function() {
     //Comprobar que se guardo toda la informacion del usuario
     enviar_Formulario();
 
+    
 
 });
+
+function menu_underline(){
+  //Variable para saber en que pagina estamos
+  const page = window.location.href.substring(22);
+  const menu = document.querySelectorAll('.nav-links ul li a');
+  //console.log(page);
+
+  //Swich para ubicar la pagina en la que estemos
+  switch (page) {
+    case 'index.html':
+      //console.log('Estoy en index');
+      //console.log(menu[0]);
+      menu[0].style.color="#079992";
+      menu[0].style.fontWeight="bolder";
+      break;
+   case 'about.html':
+     //console.log('Estoy en about');
+      menu[1].style.color="#079992";
+      menu[1].style.fontWeight="bolder";
+    break;
+
+  case 'courses.html':
+    //console.log('Estoy en courses');
+      menu[2].style.color="#079992";
+      menu[2].style.fontWeight="bolder";
+    break;
+
+  case 'blog.html':
+   // console.log('Estoy en blog');
+    menu[3].style.color="#079992";
+    menu[3].style.fontWeight="bolder";
+    break;
+
+  case 'contact.html':
+   // console.log('Estoy en contact');
+    menu[4].style.color="#079992";
+    menu[4].style.fontWeight="bolder";
+    break;
+  }
+
+
+}
 
 function enviar_Formulario() {
   //Crear evennto submit para el formulario
@@ -43,10 +90,11 @@ function enviar_Formulario() {
 
 
    if(vacio===true){//Si alguna de las propiedades esta vacia se manda un mensaje de error
-    MostrarAlerta('Faltan datos por llenar');
+    MostrarAlerta('Faltan datos por llenar','error');
     vacio = false;
    }else{
     console.log(Object.values(persona));
+    MostrarAlerta('Envio Exitoso','bien');
    }
 
   });
@@ -78,7 +126,7 @@ function persona_nombre(){
     const nombreTexto = e.target.value.trim();
     if(nombreTexto.length<4 || nombreTexto===''){
       //Funcion para mostrar mensaje
-     MostrarAlerta("Nombre no valido")
+     MostrarAlerta("Nombre no valido",'error')
       }else{
         const alerta = document.querySelector('.alerta');
         if(alerta){
@@ -100,7 +148,7 @@ function persona_email(){
       const email_regex = /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
       const emailTexto = e.target.value.trim();
       if(emailTexto===''||!emailTexto.match(email_regex)){
-        MostrarAlerta('Correo no Válido');
+        MostrarAlerta('Correo no Válido','error');
       }else{
         const alerta = document.querySelector('.alerta');
       if(alerta){
@@ -122,7 +170,7 @@ function persona_subject(){
     input_subject.addEventListener('input',(e)=>{
       const inputTexto = e.target.value.trim();
       if(inputTexto===''||inputTexto.length<5){
-        MostrarAlerta('Subject es muy corto')
+        MostrarAlerta('Subject es muy corto','error')
       }else{
         const alerta = document.querySelector('.alerta');
         if(alerta){
@@ -142,7 +190,7 @@ function persona_message(){
     input_message.addEventListener('input',(e)=>{
       const messageTexto = e.target.value.trim();
       if(messageTexto===''||messageTexto.length<15){
-        MostrarAlerta('Agrega más contenido');
+        MostrarAlerta('Agrega más contenido','error');
       }else{
         const alerta = document.querySelector('.alerta');
         if(alerta){
@@ -158,7 +206,7 @@ function persona_message(){
 
 
 
-function MostrarAlerta(message){
+function MostrarAlerta(message,tipo){
   const alertaPrevia = document.querySelector('.alerta');
 
   //Si existe alerta
@@ -173,6 +221,12 @@ function MostrarAlerta(message){
   alerta.appendChild(mensaje);
   //alerta.textContent = message;
   alerta.classList.add('alerta');
+
+ if(tipo==='error'){
+    alerta.style.background="red";
+ }else if(tipo==='bien'){
+  alerta.style.background="green";
+ }
 
   //Agregarlo en el formulario
   const formulario = document.querySelector('#formulario');
