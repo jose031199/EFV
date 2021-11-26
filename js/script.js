@@ -34,9 +34,9 @@ function menu_underline(){
   const menu = document.querySelectorAll('.nav-links ul li a');
   
   const pagina = page.substring(page.lastIndexOf('/'));
-  //console.log(pagina);
-
-  //Swich para ubicar la pagina en la que estemos
+  if (pagina){
+     //console.log(pagina);
+    //Swich para ubicar la pagina en la que estemos
   switch (pagina) {
     case '/index.html':
       //console.log('Estoy en index');
@@ -67,7 +67,8 @@ function menu_underline(){
     menu[4].style.color="#079992";
     menu[4].style.fontWeight="bolder";
     break;
-  }
+    }
+  }  
 }
 
 function enviar_Formulario() {
