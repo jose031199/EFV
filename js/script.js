@@ -30,44 +30,44 @@ document.addEventListener('DOMContentLoaded',function() {
 
 function menu_underline(){
   //Variable para saber en que pagina estamos
-  const page = window.location.href.substring(22);
+  const page = window.location.href
   const menu = document.querySelectorAll('.nav-links ul li a');
-  //console.log(page);
+  
+  const pagina = page.substring(page.lastIndexOf('/'));
+  //console.log(pagina);
 
   //Swich para ubicar la pagina en la que estemos
-  switch (page) {
-    case 'index.html':
+  switch (pagina) {
+    case '/index.html':
       //console.log('Estoy en index');
       //console.log(menu[0]);
       menu[0].style.color="#079992";
       menu[0].style.fontWeight="bolder";
       break;
-   case 'about.html':
+   case '/about.html':
      //console.log('Estoy en about');
       menu[1].style.color="#079992";
       menu[1].style.fontWeight="bolder";
     break;
 
-  case 'courses.html':
+  case '/courses.html':
     //console.log('Estoy en courses');
       menu[2].style.color="#079992";
       menu[2].style.fontWeight="bolder";
     break;
 
-  case 'blog.html':
-   // console.log('Estoy en blog');
+  case '/blog.html':
+   //console.log('Estoy en blog');
     menu[3].style.color="#079992";
     menu[3].style.fontWeight="bolder";
     break;
 
-  case 'contact.html':
-   // console.log('Estoy en contact');
+  case '/contact.html':
+    //console.log('Estoy en contact');
     menu[4].style.color="#079992";
     menu[4].style.fontWeight="bolder";
     break;
   }
-
-
 }
 
 function enviar_Formulario() {
