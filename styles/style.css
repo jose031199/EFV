@@ -194,28 +194,38 @@ p{
     transition:0.5s;
 }
 
+
+
 .course-col:nth-child(1){
-    background: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url('../img/kids.jpg');
+   /*background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/kids.jpg');*/
+   background: url('../img/kids.jpg');
 }
 
 .course-col:nth-child(2){
-    background: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url('../img/teenagers.jpg');
+   /* background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/teenagers.jpg');*/
+   background: url('../img/teenagers.jpg');
 }
 
 .course-col:nth-child(3){
-    background: linear-gradient(rgba(4,9,30,0.4),rgba(4,9,30,0.4)),url('../img/adults.jpg');
+    /*background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/adults.jpg');*/
+    background: url('../img/adults.jpg');
 }
 
 .course-col:nth-child(1),.course-col:nth-child(2),.course-col:nth-child(3){
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: grayscale(70%);
+    transition: 1s;
 }
 
 .course-col:hover{
     box-shadow:0 0 20px 10px rgba(0,0,0,0.7);
     flex-basis: 35%;
+    filter: grayscale(0%);
+    transform: scaleY(1.1);
 }
+
 
 h3{
     text-align: center;
