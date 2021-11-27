@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded',function() {
   //Funcion para marcar con la barra roja en que pagina estamos
     menu_underline();
 
+    //Funcion para mostrarImagenes
+    show_Image();
+
   //Funcion para mostrar el menu en movil
     eventListener();
    
@@ -27,6 +30,59 @@ document.addEventListener('DOMContentLoaded',function() {
     
 
 });
+
+function show_Image(){
+
+  const gallerySchool = document.querySelectorAll('.facilities-col img');
+  //En caso de haya una lista de imagenes
+  if(gallerySchool.length>0){
+    //console.log('Existe');
+    gallerySchool.forEach(school_img=>{
+      school_img.addEventListener('click',function(){
+      const direccionImg = this.src.substring(this.src.lastIndexOf('img/'));
+        overlay_Image(direccionImg);
+      //console.log(direccionImg);        
+      })
+    });
+  }
+
+
+}
+
+function overlay_Image(value){
+  //Generar imagen y div 
+  const imagen = document.createElement('IMG');
+  const overlay = document.createElement('DIV');
+
+  //Se obtiene direccion de imagen
+  imagen.src = `${value}`;
+  overlay.appendChild(imagen);
+
+  overlay.classList.add('overlay');
+  
+  //Cuando se da click en el overlay se cierra
+  overlay.onclick = function() {
+    overlay.remove();
+    body.classList.remove('fijar-body');
+  }
+
+  //Crear boton X para cerrar imagen
+
+  const btnCerrar = document.createElement('P');
+  btnCerrar.textContent ='X';
+  btnCerrar.classList.add('btn-cerrar');
+  overlay.appendChild(btnCerrar);
+
+  btnCerrar.onclick=function(){
+    overlay.remove();
+    body.classList.remove('fijar-body');
+  }
+
+  //Mostrar en HTML
+  const body = document.querySelector('body');
+  body.appendChild(overlay);
+  body.classList.add('fijar-body');
+}
 
 function menu_underline(){
   //Variable para saber en que pagina estamos
