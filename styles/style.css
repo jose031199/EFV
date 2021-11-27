@@ -689,3 +689,16 @@ footer h4{
     font-weight: bold;
     background-color:white;
 }
+
+@media(max-width:720px){
+    .overlay img{
+        height:320px;
+        background-size: cover;
+    }
+}
+
+@media(max-width:480px){
+    .overlay img{
+        height: 230px;
+    }
+}
