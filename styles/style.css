@@ -667,13 +667,29 @@ footer h4{
     width: 100%;
     height: 100%;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /*display: grid;
+    place-items: center;*/
+}
+
+
+.div_cerrar{
+    position: fixed;
+    background: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    top: 40%;
     display: grid;
     place-items: center;
 }
 
 .overlay img {
     border-radius: 15px;
+    cursor: pointer;
 }
+
 
 .fijar-body{
     overflow: hidden;
@@ -686,9 +702,13 @@ footer h4{
     height:3rem;
     border-radius:50%;
     color: black;
+    font-size: 25px;
     font-weight: bold;
     background-color:white;
+    cursor: pointer;
 }
+
+
 
 @media(max-width:720px){
     .overlay img{
