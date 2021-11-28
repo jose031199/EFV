@@ -40,6 +40,9 @@ function show_Image(){
     gallerySchool.forEach(school_img=>{
       school_img.addEventListener('click',function(){
       const direccionImg = this.src.substring(this.src.lastIndexOf('img/'));
+
+        //console.log(this.dataset.index);
+        //console.log(school_img.target.dataset)
         overlay_Image(direccionImg);
       //console.log(direccionImg);        
       })
@@ -50,37 +53,50 @@ function show_Image(){
 }
 
 function overlay_Image(value){
-  //Generar imagen y div 
+  //Generar imagen y div
+
   const imagen = document.createElement('IMG');
   const overlay = document.createElement('DIV');
-
+ 
   //Se obtiene direccion de imagen
   imagen.src = `${value}`;
+  
   overlay.appendChild(imagen);
 
+ 
+
   overlay.classList.add('overlay');
-  
+ 
+
   //Cuando se da click en el overlay se cierra
-  overlay.onclick = function() {
-    overlay.remove();
-    body.classList.remove('fijar-body');
-  }
+ overlay.onclick =function(){
+   overlay.remove();
+   div_cerrar.remove();
+   body.classList.remove('fijar-body');
+ }
+
+  //Cuando se da click en after
+ 
 
   //Crear boton X para cerrar imagen
-
   const btnCerrar = document.createElement('P');
+  const div_cerrar = document.createElement('DIV');
   btnCerrar.textContent ='X';
   btnCerrar.classList.add('btn-cerrar');
-  overlay.appendChild(btnCerrar);
+  div_cerrar.appendChild(btnCerrar);
+  div_cerrar.classList.add('div_cerrar');
+  //overlay.appendChild(btnCerrar);
 
   btnCerrar.onclick=function(){
     overlay.remove();
+    div_cerrar.remove();
     body.classList.remove('fijar-body');
   }
 
   //Mostrar en HTML
   const body = document.querySelector('body');
   body.appendChild(overlay);
+  body.appendChild(div_cerrar);
   body.classList.add('fijar-body');
 }
 
