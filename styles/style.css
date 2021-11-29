@@ -13,7 +13,7 @@
 }
 
 /*1. Header*/
-header{
+.header-main{
     min-height: 100vh;
     width: 100%;
     background: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('../img/university_english.jpg');
@@ -412,7 +412,7 @@ h3{
 .banner h1{
     color: var(--color_blanco);
     margin-bottom:40px;
-    padding:0;
+    padding:15px;
 }
 
 @media(max-width:720px){
@@ -534,8 +534,9 @@ footer h4{
     background: var(--color_dorado);
     color: var(--color_blanco);
     font-size: 25px;
-    padding:7px 0px;
+    padding:10px 0px;
     margin-bottom: 20px;
+    margin-top:0;
 }
 
 .blog-right span {
