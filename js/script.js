@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded',function() {
     //Funcion para mostrarImagenes
     show_Image();
 
+    //Funcion para cambiar imagen del header del index cada instante
+
   //Funcion para mostrar el menu en movil
     eventListener();
    
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded',function() {
 
 });
 
+//Funcion para mostrarImagenes de la seccion facilities
 function show_Image(){
 
   const gallerySchool = document.querySelectorAll('.facilities-col img');
@@ -52,31 +55,28 @@ function show_Image(){
 
 }
 
+//Funcion para mostrar la imagen seleccionada de manera completa de facilities
 function overlay_Image(value){
   //Generar imagen y div
 
   const imagen = document.createElement('IMG');
   const overlay = document.createElement('DIV');
- 
   //Se obtiene direccion de imagen
   imagen.src = `${value}`;
   
   overlay.appendChild(imagen);
 
- 
 
-  overlay.classList.add('overlay');
- 
+  overlay.classList.add('overlay'); 
 
   //Cuando se da click en el overlay se cierra
- overlay.onclick =function(){
-   overlay.remove();
-   div_cerrar.remove();
-   body.classList.remove('fijar-body');
- }
+  overlay.onclick =function(){
+  overlay.remove();
+  div_cerrar.remove();
+  body.classList.remove('fijar-body');
+}
 
   //Cuando se da click en after
- 
 
   //Crear boton X para cerrar imagen
   const btnCerrar = document.createElement('P');
@@ -100,6 +100,7 @@ function overlay_Image(value){
   body.classList.add('fijar-body');
 }
 
+//Funcion para marcar de color la pagina que estamos navegando
 function menu_underline(){
   //Variable para saber en que pagina estamos
   const page = window.location.href
@@ -116,7 +117,7 @@ function menu_underline(){
       menu[0].style.color="#079992";
       menu[0].style.fontWeight="bolder";
       break;
-   case '/about.html':
+    case '/about.html':
      //console.log('Estoy en about');
       menu[1].style.color="#079992";
       menu[1].style.fontWeight="bolder";
@@ -143,6 +144,7 @@ function menu_underline(){
   }  
 }
 
+//Funcion para verificar que el formulario de contacto este correcto
 function enviar_Formulario() {
   //Crear evennto submit para el formulario
   const formulario = document.getElementById('formulario');
@@ -155,20 +157,20 @@ function enviar_Formulario() {
     e.preventDefault();//Evento para detener el evento de submit
 
     //Verificar si alguna de los keys del objeto estan vacios
-   Object.keys(persona).forEach(function(key){
+  Object.keys(persona).forEach(function(key){
     if(persona[key]===''){
       vacio=true;
     }
-   });
+  });
 
 
-   if(vacio===true){//Si alguna de las propiedades esta vacia se manda un mensaje de error
+  if(vacio===true){//Si alguna de las propiedades esta vacia se manda un mensaje de error
     MostrarAlerta('Faltan datos por llenar','error');
     vacio = false;
-   }else{
+  }else{
     console.log(Object.values(persona));
     MostrarAlerta('Envio Exitoso','bien');
-   }
+  }
 
   });
   }
@@ -176,6 +178,7 @@ function enviar_Formulario() {
   
 }
 
+//Funcion para mostrar el menu ya sea de forma responsiva o en desktop
 function eventListener() {
   const barra = document.querySelector('.bars');
   const cerrar = document.querySelector('.close');
@@ -190,28 +193,30 @@ function eventListener() {
   });
 }
 
+//Funcion para verificar que el nombre llenado en el form de contacto sea correcto
 function persona_nombre(){
   const input_Nombre = document.getElementById('name');
 
   //Comprobar si la variable tiene algun valor
- if(input_Nombre){
-  input_Nombre.addEventListener('input',(e)=>{
+  if(input_Nombre){
+    input_Nombre.addEventListener('input',(e)=>{
     const nombreTexto = e.target.value.trim();
-    if(nombreTexto.length<4 || nombreTexto===''){
+      if(nombreTexto.length<4 || nombreTexto===''){
       //Funcion para mostrar mensaje
-     MostrarAlerta("Nombre no valido",'error')
-      }else{
-        const alerta = document.querySelector('.alerta');
-        if(alerta){
-         alerta.remove();
+      MostrarAlerta("Nombre no valido",'error')
+        }else{
+          const alerta = document.querySelector('.alerta');
+          if(alerta){
+          alerta.remove();
+          }
+        persona.nombre = nombreTexto;
         }
-       persona.nombre = nombreTexto;
-      }
-   });
- } 
+    });
+  } 
   
 }
 
+//Funcion para verificar que el email llenado en el form de contacto sea correcto
 function persona_email(){
   const input_email = document.querySelector('#email');
 
@@ -232,9 +237,9 @@ function persona_email(){
       
     });
   }
- 
 }
 
+//Funcion para verificar que el subject llenado en el form de contacto sea correcto
 function persona_subject(){
   const input_subject = document.querySelector('#subject');
 
@@ -253,9 +258,9 @@ function persona_subject(){
       }
     });
   }
- 
 }
 
+//Funcion para verificar que el mensaje llenado en el form de contacto sea correcto
 function persona_message(){
   const input_message = document.querySelector('#message');
 
@@ -278,7 +283,7 @@ function persona_message(){
 
 
 
-
+//Funcion para mostrar alerta del form ya sea correcto o incorrecto
 function MostrarAlerta(message,tipo){
   const alertaPrevia = document.querySelector('.alerta');
 
@@ -295,11 +300,11 @@ function MostrarAlerta(message,tipo){
   //alerta.textContent = message;
   alerta.classList.add('alerta');
 
- if(tipo==='error'){
+  if(tipo==='error'){
     alerta.style.background="red";
- }else if(tipo==='bien'){
+  }else if(tipo==='bien'){
   alerta.style.background="green";
- }
+  }
 
   //Agregarlo en el formulario
   const formulario = document.querySelector('#formulario');
