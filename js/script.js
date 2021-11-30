@@ -1,6 +1,6 @@
 const persona ={nombre:'',
 email:'',subject:'',message:''};
-
+var cont = 1;
 document.addEventListener('DOMContentLoaded',function() {
   //Funcion para marcar con la barra roja en que pagina estamos
     menu_underline();
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded',function() {
     show_Image();
 
     //Funcion para cambiar imagen del header del index cada instante
+    change_Image();
 
   //Funcion para mostrar el menu en movil
     eventListener();
@@ -29,13 +30,10 @@ document.addEventListener('DOMContentLoaded',function() {
     //Comprobar que se guardo toda la informacion del usuario
     enviar_Formulario();
 
-    
-
 });
 
 //Funcion para mostrarImagenes de la seccion facilities
 function show_Image(){
-
   const gallerySchool = document.querySelectorAll('.facilities-col img');
   //En caso de haya una lista de imagenes
   if(gallerySchool.length>0){
@@ -43,17 +41,33 @@ function show_Image(){
     gallerySchool.forEach(school_img=>{
       school_img.addEventListener('click',function(){
       const direccionImg = this.src.substring(this.src.lastIndexOf('img/'));
-
-        //console.log(this.dataset.index);
-        //console.log(school_img.target.dataset)
         overlay_Image(direccionImg);
       //console.log(direccionImg);        
-      })
+      });
     });
   }
 
 
 }
+
+//Funcion para cambiar imagen cada 8 segundos
+function change_Image(){
+  const header = document.querySelector('.header-main');
+  const pagina = window.location.href;
+  //Se verifica que la pagina esta en index
+    if(pagina.includes('index.html')){
+      setInterval(function(){
+      header.style.background = `linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../img/university_english${cont}.jpg)`;
+      header.style.backgroundPosition = 'center';
+      header.style.backgroundSize = 'cover';
+      console.log(cont);
+        cont++;
+      if(cont>3){
+        cont=1;
+        }
+      },8000);
+    }
+  }
 
 //Funcion para mostrar la imagen seleccionada de manera completa de facilities
 function overlay_Image(value){
