@@ -1,0 +1,33 @@
+{
+    "courses":[
+        {
+            "level":"A1",
+            "description":"Principiante"
+        },
+
+        {
+            "level":"A2",
+            "description":"Elemental"
+        },
+
+        {
+            "level":"B1",
+            "description":"Intermedio"
+        },
+
+        {
+            "level":"B2",
+            "description":"Principiante"
+        },
+
+        {
+            "level":"C1",
+            "description":"Avanzado"
+        },
+
+        {
+            "level":"C2",
+            "description":"Competente"
+        }
+    ]
+}
