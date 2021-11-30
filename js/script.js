@@ -54,18 +54,19 @@ function show_Image(){
 function change_Image(){
   const header = document.querySelector('.header-main');
   const pagina = window.location.href;
+  const page = pagina.substring(pagina.lastIndexOf('/'))
   //Se verifica que la pagina esta en index
-    if(pagina.includes('index.html')){
+    if(page==='/index.html'){
       setInterval(function(){
       header.style.background = `linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../img/university_english${cont}.jpg)`;
       header.style.backgroundPosition = 'center';
       header.style.backgroundSize = 'cover';
-      console.log(cont);
+      //console.log(cont);
         cont++;
       if(cont>3){
         cont=1;
         }
-      },8000);
+      },15000);
     }
   }
 
