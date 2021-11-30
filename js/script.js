@@ -3,32 +3,34 @@ email:'',subject:'',message:''};
 var cont = 1;
 document.addEventListener('DOMContentLoaded',function() {
   //Funcion para marcar con la barra roja en que pagina estamos
-    menu_underline();
+  menu_underline();
 
-    //Funcion para mostrarImagenes
-    show_Image();
+  //Funcion para mostrarImagenes
+  show_Image();
 
-    //Funcion para cambiar imagen del header del index cada instante
-    change_Image();
+  //Funcion para cambiar imagen del header del index cada instante
+  change_Image();
 
   //Funcion para mostrar el menu en movil
-    eventListener();
-   
-    //Guardar datos del usuario 
-    persona_nombre();
+  eventListener();
 
-    //Guardar email del usuario
-    persona_email();
+  //Guardar datos del usuario 
+  persona_nombre();
 
-    //Guardar subject del usuario
-    persona_subject();
+  //Guardar email del usuario
+  persona_email();
 
+  //Guardar subject del usuario
+  persona_subject();
 
-    //Guardar mensaje del usuario
-    persona_message();
+  //Guardar mensaje del usuario
+  persona_message();
 
-    //Comprobar que se guardo toda la informacion del usuario
-    enviar_Formulario();
+  //Mostrar informacion de Certificados 
+  show_certificates();
+
+  //Comprobar que se guardo toda la informacion del usuario
+  send_Form();
 
 });
 
@@ -159,8 +161,37 @@ function menu_underline(){
   }  
 }
 
+function show_certificates(){
+  const blog_right = document.querySelector('.blog-right');
+  //Si existe blog_right
+  if(blog_right){
+    //console.log(blog_right)
+    try{
+      fetch('js/cursos.json')
+      .then(response=>response.json())// Indicamos el formato en el que se desea obtener la info
+      .then(cursos=>{
+        cursos.courses.forEach(course=>{
+          //console.log(course);
+          const div = document.createElement('DIV');
+          const span1 = document.createElement('SPAN');
+          const span2 = document.createElement('SPAN');
+
+          span1.innerHTML = course.level;
+          span2.innerHTML = course.description;
+          
+          div.appendChild(span1);
+          div.appendChild(span2);
+          blog_right.appendChild(div);
+        });
+      }); //Aqui obtenemos dicha informacion  
+    }catch(error){
+      console.log(error);
+    }
+  }
+}
+
 //Funcion para verificar que el formulario de contacto este correcto
-function enviar_Formulario() {
+function send_Form() {
   //Crear evennto submit para el formulario
   const formulario = document.getElementById('formulario');
   let vacio = false;
@@ -258,7 +289,7 @@ function persona_email(){
 function persona_subject(){
   const input_subject = document.querySelector('#subject');
 
-  //Comrpobar si la variable tiene algun valor
+  //Comprobar si la variable tiene algun valor
   if(input_subject){
     input_subject.addEventListener('input',(e)=>{
       const inputTexto = e.target.value.trim();
