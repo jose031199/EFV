@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded',function() {
   //Mostrar informacion de Certificados 
   show_certificates();
 
+  //Mostrar Opiniones
+  show_testimonialsNext();
+
   //Comprobar que se guardo toda la informacion del usuario
   send_Form();
 
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded',function() {
 function show_Image(){
   const gallerySchool = document.querySelectorAll('.facilities-col img');
   //En caso de haya una lista de imagenes
-  if(gallerySchool.length>0){
+  if(gallerySchool){
     //console.log('Existe');
     gallerySchool.forEach(school_img=>{
       school_img.addEventListener('click',function(){
@@ -48,8 +51,6 @@ function show_Image(){
       });
     });
   }
-
-
 }
 
 //Funcion para cambiar imagen cada 8 segundos
@@ -68,9 +69,68 @@ function change_Image(){
       if(cont>3){
         cont=1;
         }
-      },15000);
+      },8000);
     }
   }
+
+  //Funcion para mostrar testimonials
+function show_testimonialsNext(){
+  const div_testimonials = document.querySelectorAll('.testimonials-col');
+  //Su=i hay testimonials
+  if(div_testimonials){
+    console.log(div_testimonials);
+    const next = document.querySelector('.next');
+      
+    next.addEventListener('click',function(){
+      for(let i=0;i<div_testimonials.length;i++){
+        div_testimonials[i].style.display='none';
+        next.style.display = 'none';
+        //show_TestimonialsBack();      
+      }
+      const div_testimonials2 = document.querySelectorAll('#testimonials2');
+      for(let i=0;i<div_testimonials2.length;i++){
+        const div = document.createElement('DIV');
+        const p = document.createElement('P');
+        const h3 = document.createElement('H3');
+
+        if(i===0){
+          p.innerText = 'As long as i remember english has always been my struggle,' 
+        +'incapable to express what i really meant to say, today i feel more confident thanks to EFV';
+
+        h3.innerText = 'Ramón Morales';
+
+        }else if(i===1){
+          p.innerText = 'I used so many apps that to improve my english but none of them worked,'+
+          'i almost gave up but thanks to my course in EFV i can speak fluently';
+          
+          h3.innerText = 'Andrea Corrales';
+        }
+        div.appendChild(p)
+        div.appendChild(h3);
+        div_testimonials2[i].appendChild(div);
+        div_testimonials2[i].classList.add('.testimonials-col');
+        div_testimonials2[i].style.display='flex';
+      }
+      show_TestimonialsBack(div_testimonials2,div_testimonials,next);
+    })
+  }
+}
+
+function show_TestimonialsBack(div_testimonials2,div_testimonials,next){
+  const back = document.querySelector('.back');
+  if(back){
+    back.style.display='flex';
+    back.addEventListener('click',function(){
+      for(let i=0;i<div_testimonials2.length;i++){
+        div_testimonials2[i].style.display='none';
+        div_testimonials2[i].querySelector('div').remove();
+        div_testimonials[i].style.display='flex';
+      }
+      next.style.display ='flex';
+      back.style.display='none';
+    });
+  } 
+}
 
 //Funcion para mostrar la imagen seleccionada de manera completa de facilities
 function overlay_Image(value){
@@ -327,8 +387,6 @@ function persona_message(){
 
 }
 
-
-
 //Funcion para mostrar alerta del form ya sea correcto o incorrecto
 function MostrarAlerta(message,tipo){
   const alertaPrevia = document.querySelector('.alerta');
@@ -337,7 +395,6 @@ function MostrarAlerta(message,tipo){
   if(alertaPrevia){
     return;
   }
-
   //Crear alerta
   const alerta = document.createElement('DIV');
   const mensaje = document.createElement('p');
@@ -351,13 +408,11 @@ function MostrarAlerta(message,tipo){
   }else if(tipo==='bien'){
   alerta.style.background="green";
   }
-
   //Agregarlo en el formulario
   const formulario = document.querySelector('#formulario');
   formulario.appendChild(alerta);
 
   //Establecer un tiempo del mensaje 
-
   setTimeout(() => {
     alerta.remove();
   },6000);
