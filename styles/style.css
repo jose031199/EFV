@@ -197,13 +197,13 @@ p{
 
 
 .course-col:nth-child(1){
-   /*background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/kids.jpg');*/
-   background: url('../img/kids.jpg');
+    /*background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/kids.jpg');*/
+    background: url('../img/kids.jpg');
 }
 
 .course-col:nth-child(2){
-   /* background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/teenagers.jpg');*/
-   background: url('../img/teenagers.jpg');
+    /* background: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url('../img/teenagers.jpg');*/
+    background: url('../img/teenagers.jpg');
 }
 
 .course-col:nth-child(3){
@@ -542,7 +542,7 @@ footer h4{
 }
 
 .blog-left p{
-    color: #999;
+    color: rgb(46, 42, 42);
     padding:10px 0;
 }
 
@@ -658,15 +658,14 @@ footer h4{
 
 .contact-col input, .contact-col textarea{
     width:100%;
-    padding:13px 0;
+    padding:13px 18px 13px;
     margin-bottom: 17px;
     outline: none;
     border: 1px solid #ccc;
     border-radius: 10px;
     background: rgb(224, 219, 219);
     font-weight: bold;
-    font-size:15px;
-    text-align: center;
+    font-size:18px;
 }
 
 /*Clases creadas en javascript*/
