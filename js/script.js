@@ -137,7 +137,7 @@ function show_testimonialsNext(){
   const next = document.querySelector('.next');
   //Su=i hay testimonials
   if(div_testimonials && next){
-    console.log(div_testimonials);
+    //console.log(div_testimonials);
       
     next.addEventListener('click',function(){
       for(let i=0;i<div_testimonials.length;i++){
@@ -361,7 +361,7 @@ function send_Form() {
 
   //Si la variable tiene algun valor
   if(formulario){
-    console.log(formulario);
+    //console.log(formulario);
     //Evento para enviar formulario
     formulario.addEventListener('submit',function(e){
       e.preventDefault();//Evento para detener el evento de submit
