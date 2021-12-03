@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',function() {
   //Funcion para marcar con la barra roja en que pagina estamos
   menu_underline();
 
-  //Funcion para cambiar imagen del header del index cada instante
+//Funcion para cambiar imagen del header del index cada instante
   change_Image();
 
   //Funcion para mostrarImagenes
@@ -115,7 +115,6 @@ function change_Image(){
     },8000);
   }
 }
-
 //Funcion para mostrarImagenes de la seccion facilities
 function show_Image(){
   const gallerySchool = document.querySelectorAll('.facilities-col img');
