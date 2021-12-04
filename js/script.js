@@ -1,6 +1,8 @@
+
 const persona ={nombre:'',
 email:'',subject:'',message:''};
 var cont = 1;
+
 document.addEventListener('DOMContentLoaded',function() {
   //Funcion para mostrar el menu en movil
   eventListener();
@@ -276,12 +278,12 @@ function persona_nombre(){
     const nombreTexto = e.target.value.trim();
       if(nombreTexto.length<4 || nombreTexto===''){
       //Funcion para mostrar mensaje
-      MostrarAlerta("Nombre no valido",'error')
-        }else{
-          const alerta = document.querySelector('.alerta');
-          if(alerta){
-          alerta.remove();
-          }
+      //MostrarAlerta("Nombre no valido",'error')
+        input_Nombre.style.background="var(--color_rojo)";
+        input_Nombre.style.color="white";
+      }else{
+        input_Nombre.style.background="rgb(224, 219, 219)";
+        input_Nombre.style.color="black";
         persona.nombre = nombreTexto;
         }
     });
@@ -299,13 +301,13 @@ function persona_email(){
       const email_regex = /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
       const emailTexto = e.target.value.trim();
       if(emailTexto===''||!emailTexto.match(email_regex)){
-        MostrarAlerta('Correo no Válido','error');
+        //MostrarAlerta('Correo no Válido','error');
+        input_email.style.background="var(--color_rojo)";
+        input_email.style.color="white";
       }else{
-        const alerta = document.querySelector('.alerta');
-      if(alerta){
-        alerta.remove();
-      }
-      persona.email = emailTexto;
+        input_email.style.background="rgb(224, 219, 219)";
+        input_email.style.color="black";
+        persona.email = emailTexto;
       }
       
     });
@@ -321,12 +323,12 @@ function persona_subject(){
     input_subject.addEventListener('input',(e)=>{
       const inputTexto = e.target.value.trim();
       if(inputTexto===''||inputTexto.length<5){
-        MostrarAlerta('Subject es muy corto','error')
+        //MostrarAlerta('Subject es muy corto','error')
+        input_subject.style.background="var(--color_rojo)";
+        input_subject.style.color="white";
       }else{
-        const alerta = document.querySelector('.alerta');
-        if(alerta){
-          alerta.remove();
-        }
+        input_subject.style.background="rgb(224,219,219)"; 
+        input_subject.style.color="black";
         persona.subject = inputTexto;
       }
     });
@@ -341,12 +343,12 @@ function persona_message(){
     input_message.addEventListener('input',(e)=>{
       const messageTexto = e.target.value.trim();
       if(messageTexto===''||messageTexto.length<15){
-        MostrarAlerta('Agrega más contenido','error');
+        //MostrarAlerta('Agrega más contenido','error');
+        input_message.style.background="var(--color_rojo)";
+        input_message.style.color="white";
       }else{
-        const alerta = document.querySelector('.alerta');
-        if(alerta){
-          alerta.remove();
-        }
+        input_message.style.background="rgb(224, 219, 219)";
+        input_message.style.color="black";
         persona.message = messageTexto;
       }
     });
@@ -373,43 +375,26 @@ function send_Form() {
     });
 
     if(vacio===true){//Si alguna de las propiedades esta vacia se manda un mensaje de error
-      MostrarAlerta('Faltan datos por llenar','error');
+      Swal.fire({
+        icon:'error',
+        title:'Envio Rechazado',
+        text: 'Debes de llenar el formulario',
+        showConfirmButton:false,
+        timer:1500
+      })
       vacio = false;
     }else{
       console.log(Object.values(persona));
-      MostrarAlerta('Envio Exitoso','bien');
+      Swal.fire({
+        icon:"success",
+        title:"Envío Exitoso",
+        text:`Nombre ${persona.nombre} \n Correo ${persona.email}`,
+        showConfirmButton:false,
+        timer:1500
+        });
+        
       }
     });
   }
 }
 
-//Funcion para mostrar alerta del form ya sea correcto o incorrecto
-function MostrarAlerta(message,tipo){
-  const alertaPrevia = document.querySelector('.alerta');
-
-  //Si existe alerta
-  if(alertaPrevia){
-    return;
-  }
-  //Crear alerta
-  const alerta = document.createElement('DIV');
-  const mensaje = document.createElement('p');
-  mensaje.textContent= message;
-  alerta.appendChild(mensaje);
-  //alerta.textContent = message;
-  alerta.classList.add('alerta');
-
-  if(tipo==='error'){
-    alerta.style.background="red";
-  }else if(tipo==='bien'){
-  alerta.style.background="green";
-  }
-  //Agregarlo en el formulario
-  const formulario = document.querySelector('#formulario');
-  formulario.appendChild(alerta);
-
-  //Establecer un tiempo del mensaje 
-  setTimeout(() => {
-    alerta.remove();
-  },6000);
-}
