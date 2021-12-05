@@ -45,7 +45,7 @@ nav img{
 .nav-links ul li{
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 8px 10px;
     position: relative;
 }
 .nav-links ul li a{
@@ -113,11 +113,25 @@ nav .fas{
     display: none;
 }
 
+nav .dark_mode{
+    height:30px;
+    width: 30px;
+    margin-left: 15px;
+}
+
+.darkmode_bg{
+    background-color: #1B1212;
+    color: white;
+}
+
 /*Media query para header*/
 
 @media(max-width:768px){
     .nav-links ul li{
-        padding: 8px 6px;
+        padding: 8px 4px;
+    }
+    .nav-links ul li a{
+        font-size:14px;
     }
 }
 
@@ -536,13 +550,11 @@ footer h4{
 }
 
 .blog-left h2{
-    color: #222;
     font-weight: 600;
     margin: 30px 0;
 }
 
 .blog-left p{
-    color: rgb(46, 42, 42);
     padding:10px 0;
 }
 
@@ -567,7 +579,6 @@ footer h4{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #555;
     background:transparent;
     padding: 15px;
 }
@@ -648,7 +659,6 @@ footer h4{
 .contact-col h5{
     font-size:25px;
     margin-bottom:5px;
-    color: #555;
     font-weight: 400;
 }
 
