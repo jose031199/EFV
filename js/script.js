@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded',function() {
   //Funcion para mostrar el menu en movil
   eventListener();
 
+  //Funcion para convertir en dark-mode
+  dark_mode();
+
   //Funcion para marcar con la barra roja en que pagina estamos
   menu_underline();
 
@@ -52,6 +55,19 @@ function eventListener() {
   cerrar.addEventListener('click',() => {
     nav_links.classList.remove('mostrar');
   });
+}
+
+//Funcion para convertir dark_mode
+
+function dark_mode(){
+  const dark_mode = document.querySelector('.dark_mode');
+  if(dark_mode){
+    dark_mode.addEventListener('click',() => {
+      const body = document.querySelector('body');
+      //console.log(body);
+      body.classList.toggle('darkmode_bg');
+    });
+  }
 }
 
 //Funcion para marcar de color la pagina que estamos navegando
@@ -392,6 +408,9 @@ function send_Form() {
         showConfirmButton:false,
         timer:1500
         });
+        setTimeout(()=>{
+          location.reload();
+        },2000)
         
       }
     });
