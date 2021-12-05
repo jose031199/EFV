@@ -309,7 +309,7 @@ function persona_nombre(){
 
 //Funcion para verificar que el email llenado en el form de contacto sea correcto
 function persona_email(){
-  const input_email = document.querySelector('#email');
+  const input_email = document.getElementById('email');
 
     //Comrpobar si la varialbe tiene algun valor
   if(input_email){
@@ -332,7 +332,7 @@ function persona_email(){
 
 //Funcion para verificar que el subject llenado en el form de contacto sea correcto
 function persona_subject(){
-  const input_subject = document.querySelector('#subject');
+  const input_subject = document.getElementById('subject');
 
   //Comprobar si la variable tiene algun valor
   if(input_subject){
@@ -353,7 +353,7 @@ function persona_subject(){
 
 //Funcion para verificar que el mensaje llenado en el form de contacto sea correcto
 function persona_message(){
-  const input_message = document.querySelector('#message');
+  const input_message = document.getElementById('message');
 
   if(input_message){
     input_message.addEventListener('input',(e)=>{
@@ -373,8 +373,13 @@ function persona_message(){
 
 //Funcion para verificar que el formulario de contacto este correcto
 function send_Form() {
-  //Crear evennto submit para el formulario
+  //Crear evento submit para el formulario
   const formulario = document.getElementById('formulario');
+  const input_nombre = document.getElementById('name');
+  const input_email = document.getElementById('email');
+  const input_subject = document.getElementById('subject');
+  const input_message = document.getElementById('message');
+
   let vacio = false;
 
   //Si la variable tiene algun valor
@@ -387,6 +392,22 @@ function send_Form() {
       Object.keys(persona).forEach(function(key){
         if(persona[key]===''){
           vacio=true;
+          if(persona['nombre']===''){
+            input_nombre.style.background='var(--color_rojo)';
+            input_nombre.style.color='white';
+          }
+          if(persona['email']===''){
+            input_email.style.background='var(--color_rojo)';
+            input_email.style.color='white';
+          }
+          if(persona['subject']===''){
+            input_subject.style.background='var(--color_rojo)';
+            input_subject.style.color='white';
+          }
+          if(persona['message']===''){
+            input_message.style.background='var(--color_rojo)';
+            input_message.style.color='white';
+          }
         }
     });
 
@@ -394,10 +415,10 @@ function send_Form() {
       Swal.fire({
         icon:'error',
         title:'Envio Rechazado',
-        text: 'Debes de llenar el formulario',
+        text: 'Faltan datos por llenar',
         showConfirmButton:false,
         timer:1500
-      })
+      });
       vacio = false;
     }else{
       console.log(Object.values(persona));
