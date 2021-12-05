@@ -12,8 +12,7 @@ Descripción
 ------------
 Sitio web que simulara una escuela que imparte cursos de inglés el cual tendrá una pagina index el cual mostrara el inicio de la página y sus diferentes servicios que le ofrece a los estudiantes, además de tener una seccion de nosotros el cual mostrara nuestras metas, cursos mostrara los cursos que ofrecemos, blog mostrara los certificados que damos y contacto será para contactarnos con la escuela.
 
-
-![efv](https://user-images.githubusercontent.com/68754315/144762179-ba02919b-df0b-48a6-93ff-a1b9c6011a07.gif)
+![efv](https://user-images.githubusercontent.com/68754315/144766744-bd1b87d4-b634-475d-901c-c23a7d3d82ab.gif)
 
 
 
