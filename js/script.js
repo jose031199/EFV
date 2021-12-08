@@ -425,7 +425,7 @@ function send_Form() {
       Swal.fire({
         icon:"success",
         title:"Envío Exitoso",
-        text:`Nombre ${persona.nombre} \n Correo ${persona.email}`,
+        html:'<b>Nombre</b> '+persona.nombre+'<br>'+'  <b>Correo</b> '+persona.email,
         showConfirmButton:false,
         timer:1500
         });
