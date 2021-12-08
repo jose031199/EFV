@@ -51,7 +51,7 @@ nav img{
 .nav-links ul li a{
     color: var(--color_blanco);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .nav-links ul li::after{
@@ -131,7 +131,21 @@ nav .dark_mode{
         padding: 8px 4px;
     }
     .nav-links ul li a{
-        font-size:14px;
+        font-size:19px;
+    }
+
+    nav img{
+        width: 150px;
+        height:130px;
+    }
+
+    .main-text p{
+        font-size:20px;
+        line-height:30px;
+    }
+
+    .btn{
+        font-size:20px;
     }
 }
 
@@ -167,6 +181,31 @@ nav .dark_mode{
 
     .nav-links ul{
         padding:30px;
+    }
+}
+
+@media(max-width:350px){
+    nav{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav .fas{
+        height:40px;
+        width: 40px;
+    }
+
+    nav .dark_mode{
+        height:40px;
+        width:40px;
+    }
+
+    nav img{
+        padding-top: 2%;
+    }
+
+    .main-text{
+        margin-top: 50px;
     }
 }
 
@@ -479,6 +518,10 @@ footer h4{
 @media(max-width:720px){
     footer h4{
         font-size:18px;
+    }
+
+    .icons img{
+        padding: 20px 0;
     }
 }
 /*Fin del Footer*/
