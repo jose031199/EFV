@@ -431,7 +431,7 @@ function send_Form() {
         });
         setTimeout(()=>{
           location.reload();
-        },2000)
+        },5000)
         
       }
     });
