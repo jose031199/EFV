@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+body{
+    width: 100%;
+    background:linear-gradient(to right,rgba(4,9,30,0.7),rgba(4,9,30,0.3)),url('../img/register.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:inherit;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+form{
+    margin:15% 30%;
+    padding: 18px;
+    background-color:rgba(4,9,20,0.7);
+    border-radius:15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form div{
+    margin:2%;
+}
+
+form h2{
+    color: gold;
+    font-size:25px;
+}
+
+
+form input{
+    padding:15px;
+    border-radius: 5px;
+    background-color:rgba(4, 9, 20, 0.7);
+    font-size:16px;
+    border:none;
+    color: white;
+}
+
+
+.btn_submit{
+    background-color:rgba(9,25,45,0.8);
+    padding:10px 25px;
+    font-size:25px;
+    transition:0.5s ease-in-out;
+}
+
+.options{
+    padding:5px;
+}
+
+.options a{
+    margin-left:10px;
+    transition: 0.5s ease-in;
+}
+
+.link_submit{
+    color: white;
+    font-size:15px;
+    text-decoration: none;
+}
+
+.btn_submit:hover{
+    cursor: pointer;
+    background-color: gold;
+    padding:10px 30px;
+}
+
+.options a:hover{
+    color: gold;
+}
+
+
+
+/*Media query*/
+@media(min-width:768px){
+
+}
+
