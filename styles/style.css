@@ -34,7 +34,7 @@ nav{
 }
 
 nav img{
-    width:250px;
+    width:270px;
 }
 
 .nav-links{
@@ -107,13 +107,18 @@ nav img{
     transition:1s ease-in;
 }
 
+.icons-links{
+    display: flex;
+    padding:10px 15px;
+}
+
 nav .fas{
     height:30px;
     width: 30px;
     display: none;
 }
 
-nav .dark_mode{
+.icons-links .dark_mode,.user{
     height:30px;
     width: 30px;
     margin-left: 15px;
@@ -194,6 +199,9 @@ nav .dark_mode{
         height:40px;
         width: 40px;
     }
+    .icons-links{
+        margin-bottom: 10px;
+    }
 
     nav .dark_mode{
         height:40px;
@@ -205,7 +213,7 @@ nav .dark_mode{
     }
 
     .main-text{
-        margin-top: 50px;
+        margin-top: 70px;
     }
 }
 
