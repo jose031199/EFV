@@ -15,9 +15,16 @@ body{
     display:flex;
     justify-content: center;
     flex-direction: column;
-
 }
 
+h2{
+    color: gold;
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+
+/*Styling for the login page*/
 .login{
     margin:0 30%;
     height: 300px;
@@ -31,10 +38,6 @@ body{
     margin:2%;
 }
 
-.login h2{
-    color: gold;
-    font-size:25px;
-}
 
 
 .login input{
@@ -47,15 +50,16 @@ body{
 }
 
 
-.btn_submit{
+.btn_submit,.btn_create{
     background-color:rgba(9,25,45,0.8);
-    padding:10px 25px;
-    font-size:25px;
+    padding:10px 15px;
+    font-size:15px;
     transition:0.5s ease-in-out;
 }
 
 .options{
     padding:5px;
+    margin-top:10px 0;
 }
 
 .options a{
@@ -69,7 +73,7 @@ body{
     text-decoration: none;
 }
 
-.btn_submit:hover{
+.btn_submit,.btn_create:hover{
     cursor: pointer;
     background-color: gold;
     padding:10px 30px;
@@ -79,6 +83,41 @@ body{
     color: gold;
 }
 
+/*Styling for the create acoount*/
+.account{
+    background-color:rgba(4,9,20,0.7);
+    margin:0 38%;
+    text-align:center;
+}
+
+fieldset{
+    padding:10px 4px;
+    border:none;
+}
+
+.btn_create{
+    border-radius: 15px;
+    border: none;
+    color:white;
+}
+
+.account_user input,.account_personal input,select{
+    margin:10px 0;
+    background-color: rgba(4,9,20,0.7);
+    border-radius: 15px;
+    padding:9px 6px;
+    border: none;
+    color: white;
+}
+
+.account_personal label{
+    color: white;
+    font-size:12px;
+}
+
+legend{
+    color: gold;
+}
 
 
 /*Media query*/
@@ -104,6 +143,25 @@ body{
     .link_submit{
         font-size:18px;
     }
+
+    .account{
+        margin:0 30%;
+    }
+
+    .account h2{
+        font-size:25px;
+    }
+
+    .account_user input,.account_personal input,select{
+        margin:10px 0;
+        padding:15px 6px;
+        font-size:18px;
+    }
+
+    .account_personal label{
+        font-size:15px;
+    }
+
 }
 
 @media(max-width:590px){
@@ -127,11 +185,21 @@ body{
     .link_submit{
         font-size:12px;
     }
+
+    .account{
+        margin:0 20%;
+    }
+
+    .account_user input,.account_personal input,select{
+        font-size:10px;
+    }
+
 }
 
 @media(max-width:300px){
     .login input{
         font-size:10px;
     }
+
 }
 
